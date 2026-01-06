@@ -1,99 +1,89 @@
 # AI Product Recommendation System
 
-This project is a simple AI-powered product recommendation system built using React.  
-It demonstrates how to integrate an external AI API into a frontend application and use the AI’s response to filter and recommend products based on user preferences.
+A simple React-based AI product recommendation system demonstrating safe and constrained AI API integration with clean frontend architecture.
 
-The goal of this project is to showcase clean frontend development, AI API integration, and safe handling of real-world API limitations.
+---
+
+## Project Overview
+
+| Item | Description |
+|----|------------|
+| Frontend | React (Vite) |
+| AI Integration | OpenAI API (Chat Completions) |
+| Input | Natural language user preference |
+| Output | Filtered product recommendations |
+| Error Handling | Graceful fallback on API failure |
 
 ---
 
 ## Features
 
-- React-based single-page application
-- Static product dataset rendered in the UI
-- User input for natural-language preferences (e.g. "phone under $500")
-- AI-powered recommendations constrained strictly to the given product list
-- Graceful handling of API errors and rate limits
-- Environment-variable-based API key handling (no secrets in code)
-
----
-
-## Tech Stack
-
-- React (Vite)
-- JavaScript
-- OpenAI API (Chat Completions)
-- Fetch API
+| Feature | Status |
+|------|--------|
+| Product list rendering | ✅ |
+| User preference input | ✅ |
+| AI-based recommendations | ✅ |
+| Dataset-constrained AI output | ✅ |
+| API failure handling | ✅ |
+| Environment-based secrets | ✅ |
 
 ---
 
 ## Project Structure
 
-.
-├── src
-│   ├── products.js
-│   ├── services
-│   │   └── aiService.js
-│   ├── App.jsx
-│   └── main.jsx
-├── public
-├── .env (local only, not committed)
-├── package.json
-├── vite.config.js
-└── README.md
+| Path | Purpose |
+|----|--------|
+| `src/App.jsx` | Main UI logic |
+| `src/main.jsx` | React entry point |
+| `src/products.js` | Static product dataset |
+| `src/services/aiService.js` | AI API integration |
+| `public/` | Static assets |
+| `index.html` | HTML entry |
+| `vite.config.js` | Vite configuration |
 
 ---
 
 ## How It Works
 
-1. The user enters a preference in natural language.
-2. The product list and user preference are sent to the AI API.
-3. The AI is explicitly instructed to recommend only from the provided product list.
-4. The response is parsed and used to filter products in the UI.
-5. If the AI API fails or is rate-limited, the app falls back safely without crashing.
+| Step | Description |
+|----|------------|
+| 1 | User enters a preference (e.g. "phone under $500") |
+| 2 | Preference + product list sent to AI |
+| 3 | AI constrained to recommend only from dataset |
+| 4 | Response parsed and filtered |
+| 5 | UI updates with recommendations |
 
 ---
 
 ## Environment Setup
 
-Create a `.env` file in the project root:
+| Variable | Purpose |
+|-------|--------|
+| `VITE_OPENAI_API_KEY` | OpenAI API key (local only) |
 
-VITE_OPENAI_API_KEY=your_openai_api_key_here
-
-Do not commit this file to GitHub.
-
----
-
-## Running the Project Locally
-
-1. Install dependencies:
-   npm install
-
-2. Start the development server:
-   npm run dev
-
-3. Open the app in the browser:
-   http://localhost:5173
+> The `.env` file is **not committed** to the repository.
 
 ---
 
-## Error Handling
+## Running Locally
 
-- Missing API key: handled gracefully
-- API rate limits or credit exhaustion: handled gracefully
-- Invalid AI responses: safely ignored
-
-The UI always remains functional.
+| Command | Purpose |
+|------|--------|
+| `npm install` | Install dependencies |
+| `npm run dev` | Start development server |
 
 ---
 
 ## Notes
 
-This project focuses on integration and correctness rather than UI complexity.  
-API availability depends on OpenAI account limits and is outside the scope of the implementation.
+- API rate limits depend on the OpenAI account
+- The application handles API failures gracefully
+- UI remains functional even without AI availability
 
 ---
 
 ## Status
 
-Completed and ready for evaluation.
+✔ Completed  
+✔ Ready for evaluation  
+✔ Manual upload verified
